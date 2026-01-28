@@ -278,7 +278,7 @@ Total Payable: ₹${totalPayable.toFixed(0)}
             <motion.a
               whileHover={{ scale: 1.01 }}
               whileTap={{ scale: 0.99 }}
-              href={`https://wa.me/919876543210?text=${encodeURIComponent(
+              href={`https://wa.me/917030500240?text=${encodeURIComponent(
                 whatsappMessage,
               )}`}
               target="_blank"
@@ -295,13 +295,13 @@ Total Payable: ₹${totalPayable.toFixed(0)}
             </motion.a>
 
             <a
-              href="tel:+919876543210"
+              href="tel:+917030500240"
               className="flex items-center justify-center gap-2 py-4 bg-white border border-slate-200 text-slate-700 rounded-2xl text-xs font-bold hover:bg-slate-100 transition-colors"
             >
               📞 Call Now
             </a>
             <a
-              href="mailto:support@cleancare.com"
+              href="mailto:mycleaningfriend@gmail.com"
               className="flex items-center justify-center gap-2 py-4 bg-white border border-slate-200 text-slate-700 rounded-2xl text-xs font-bold hover:bg-slate-100 transition-colors"
             >
               ✉ Email

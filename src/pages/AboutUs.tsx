@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-
+import founder from "../assets/team/founder.jpeg";
+import coFounder from "../assets/team/cofounder.jpeg";
 export default function AboutUS() {
   return (
     <section className="relative py-14 bg-white">
@@ -128,63 +129,135 @@ export default function AboutUS() {
           <h3 className="text-3xl text-center font-black text-slate-900 mb-6">
             Our Leadership <span className="text-[#0F766E]">Team</span>
           </h3>
-
-          <div className="grid sm:grid-cols-2 gap-10 max-w-4xl mx-auto py-4">
+          <div className="grid sm:grid-cols-2 gap-16 max-w-4xl mx-auto py-20 px-4">
             {[
               {
                 name: "Hemant Kapade",
                 role: "Founder",
-                image: "https://picsum.photos/id/1018/600/400", // Replace with your actual image path
+                image: founder,
+                instagram: "https://instagram.com/hemantkapade",
+                linkedin: "https://linkedin.com/in/hemantkapade",
+                email: "mailto:hemant@mycleaningfriend.com",
               },
               {
                 name: "Ramkrushn Dhorajkar",
                 role: "Co-Founder",
-                image: "https://picsum.photos/id/1018/600/400", // Replace with your actual image path
+                image: coFounder,
+                instagram: "https://instagram.com/ramkrushndhorajkar",
+                linkedin: "https://linkedin.com/in/ramkrushndhorajkar",
+                email: "mailto:ramkrushn@mycleaningfriend.com",
               },
             ].map((leader) => (
-              <div
+              <motion.div
                 key={leader.name}
+                whileHover={{ y: -10 }}
                 className="
-        group relative flex items-center gap-6 
-        bg-white p-4 pr-10 rounded-[2.5rem]
-        shadow-[0_4px_20px_rgba(0,0,0,0.03)]
-        hover:shadow-[0_30px_60px_-15px_rgba(15,118,110,0.15)]
-        hover:-translate-y-2 transition-all duration-500 ease-out
+        relative group bg-white rounded-[2rem] p-8
+        border border-slate-100
+        shadow-[0_20px_50px_-20px_rgba(15,118,110,0.15)]
+        hover:shadow-[0_40px_80px_-20px_rgba(15,118,110,0.25)]
+        transition-all duration-500
       "
               >
-                {/* 1. Image Container with Double Ring */}
-                <div className="relative flex-shrink-0">
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#0F766E] to-[#14B8A6] rounded-[2rem] rotate-6 group-hover:rotate-12 transition-transform duration-500 opacity-20" />
-
-                  <div className="relative w-24 h-24 rounded-[1.8rem] overflow-hidden border-4 border-white shadow-md bg-slate-100">
-                    <img
-                      src={leader.image}
-                      alt={leader.name}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                  </div>
-
-                  {/* Status indicator / Accent dot */}
-                  <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-white rounded-full flex items-center justify-center shadow-sm">
-                    <div className="w-3 h-3 bg-emerald-500 rounded-full animate-pulse" />
-                  </div>
+                {/* FLOATING PHOTO */}
+                <div className="relative -mt-20 mx-auto w-32 h-32 overflow-hidden rounded-2xl shadow-2xl transition-transform duration-500 group-hover:rotate-3 group-hover:scale-105">
+                  <img
+                    src={leader.image}
+                    alt={leader.name}
+                    className="w-full h-full object-cover transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-teal-900/10 group-hover:bg-transparent transition-colors duration-500" />
                 </div>
 
-                {/* 2. Content */}
-                <div className="flex flex-col">
-                  <span className="text-[16px] font-black uppercase tracking-[0.2em] text-[#14B8A6] mb-1">
-                    {leader.role}
-                  </span>
-                  <h4 className="font-bold text-slate-900 text-xl tracking-tight leading-tight">
+                {/* CONTENT */}
+                <div className="pt-6 text-center">
+                  <h4 className="text-2xl font-bold text-slate-900 tracking-tight">
                     {leader.name}
                   </h4>
+                  <span className="inline-block mt-2 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-[#0F766E] bg-teal-50 rounded-full">
+                    {leader.role}
+                  </span>
 
-                  {/* Subtle Social Line */}
-                  <div className="mt-3 flex gap-3">
-                    <div className="h-[1px] w-6 bg-slate-200 group-hover:w-12 group-hover:bg-[#14B8A6] transition-all duration-500" />
+                  {/* SOCIAL ICONS */}
+                  <div className="mt-8 flex justify-center gap-4">
+                    {/* Instagram */}
+                    <a
+                      href={leader.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2.5 rounded-xl bg-slate-50 text-[#E1306C] hover:text-[#E1306C] hover:bg-white hover:shadow-md transition-all duration-300"
+                      aria-label="Instagram"
+                    >
+                      <svg
+                        width="30"
+                        height="30"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <rect
+                          x="2"
+                          y="2"
+                          width="20"
+                          height="20"
+                          rx="5"
+                          ry="5"
+                        ></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                      </svg>
+                    </a>
+
+                    {/* LinkedIn */}
+                    <a
+                      href={leader.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2.5 rounded-xl bg-slate-50 text-[#0A66C2] hover:text-[#0A66C2] hover:bg-white hover:shadow-md transition-all duration-300"
+                      aria-label="LinkedIn"
+                    >
+                      <svg
+                        width="30"
+                        height="30"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                        <rect x="2" y="9" width="4" height="12"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                      </svg>
+                    </a>
+
+                    {/* Email */}
+                    <a
+                      href={leader.email}
+                      className="p-2.5 rounded-xl bg-slate-50 text-[#0F766E] hover:text-[#0F766E] hover:bg-white hover:shadow-md transition-all duration-300"
+                      aria-label="Email"
+                    >
+                      <svg
+                        width="30"
+                        height="30"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c1.1 0 2 .9 2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                      </svg>
+                    </a>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </motion.div>

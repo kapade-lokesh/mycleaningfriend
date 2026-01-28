@@ -10,6 +10,7 @@ import type { BookingItem, Service } from "../types/types";
 import { useState } from "react";
 import BookingSummary from "./BookingSummary";
 import AboutUS from "./AboutUs";
+import SocialBar from "../components/Socialbar";
 
 export default function CleaningLanding() {
   const [booking, setBooking] = useState<BookingItem[]>([]);
@@ -53,7 +54,6 @@ export default function CleaningLanding() {
       <Hero />
 
       {/* Services */}
-
       <OurServices onAdd={addToBooking} servicesData={servicesData} />
 
       <OnDemandCleaning />
@@ -62,7 +62,6 @@ export default function CleaningLanding() {
       <Trust />
 
       {/* Content stays straight */}
-
       <section className="relative overflow-hidden">
         {/* Top diagonal cut background */}
         <div
@@ -88,6 +87,9 @@ export default function CleaningLanding() {
 
       {/* Footer */}
       <Footer />
+
+      {/* social bar */}
+      <SocialBar />
     </div>
   );
 }

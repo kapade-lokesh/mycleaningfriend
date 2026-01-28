@@ -12,7 +12,7 @@ const Nav = () => {
       {/* <h1 className="text-2xl font-bold text-[#0F766E]">CleanCare</h1> */}
       <img src={mf} alt="Urban Company" className="h-16 rounded-xl" />
       <a
-        href="tel:+919876543210"
+        href="tel:+917030500240"
         className="flex items-center gap-2 border border-[#0F766E]/30 text-[#0F766E]
           px-5 py-2 rounded-xl shadow hover:shadow-md hover:border-[#0F766E] transition"
       >

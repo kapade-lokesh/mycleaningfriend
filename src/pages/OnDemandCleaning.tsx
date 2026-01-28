@@ -60,22 +60,22 @@ const OnDemandCleaning: React.FC = () => {
           {/* Actions */}
           <div className="mt-8 flex flex-col sm:flex-row gap-4 sm:items-center">
             {/* Add to Booking */}
-            <button
+            {/* <button
               className="flex-1 bg-gradient-to-r from-[#0F766E] to-[#14B8A6]
               text-white py-3 rounded-xl font-semibold
               shadow-md hover:shadow-lg transition"
             >
               Add to Booking
-            </button>
+            </button> */}
 
             {/* WhatsApp */}
             <a
-              href={`https://wa.me/8554996834?text=${encodeURIComponent(
+              href={`https://wa.me/7030500240?text=${encodeURIComponent(
                 description || "Hi, I want to request on-demand cleaning.",
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 flex items-center justify-center gap-2
+              className="flex-1  flex items-center justify-center gap-2
               bg-white border border-[#0F766E]
               text-[#0F766E] py-3 rounded-xl font-semibold
               hover:bg-[#ECFEFF] transition"
