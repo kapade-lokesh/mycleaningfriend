@@ -135,17 +135,17 @@ export default function AboutUS() {
                 name: "Hemant Kapade",
                 role: "Founder",
                 image: founder,
-                instagram: "https://instagram.com/hemantkapade",
-                linkedin: "https://linkedin.com/in/hemantkapade",
-                email: "mailto:hemant@mycleaningfriend.com",
+                instagram: "https://instagram.com/hemant_kapade",
+                linkedin: "https://linkedin.com/in/hemant-kapade1",
+                email: "mailto:hemantgkapade@gmail.com",
               },
               {
                 name: "Ramkrushn Dhorajkar",
                 role: "Co-Founder",
                 image: coFounder,
-                instagram: "https://instagram.com/ramkrushndhorajkar",
-                linkedin: "https://linkedin.com/in/ramkrushndhorajkar",
-                email: "mailto:ramkrushn@mycleaningfriend.com",
+                instagram: "https://instagram.com/vishaldhorajkar",
+                linkedin: "https://linkedin.com/in",
+                email: "mailto:ramkrushndhorajkar123@gmail.com",
               },
             ].map((leader) => (
               <motion.div
