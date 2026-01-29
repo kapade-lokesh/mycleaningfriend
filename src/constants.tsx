@@ -14,8 +14,12 @@ export const servicesData = [
     ],
     scope: "Full home deep cleaning",
     reviews: makeReviews("Home", 15),
-    before: "https://picsum.photos/id/1018/600/400",
-    after: "https://picsum.photos/id/1015/600/400",
+    images: [
+      "https://picsum.photos/id/1018/600/400",
+      "https://picsum.photos/id/1015/600/400",
+      "https://picsum.photos/id/1025/600/400",
+    ],
+    mainImage: "https://picsum.photos/id/1018/600/400",
   },
 
   {
@@ -31,8 +35,12 @@ export const servicesData = [
     ],
     scope: "Bungalow deep cleaning",
     reviews: makeReviews("Bungalow", 12),
-    before: "https://picsum.photos/id/102/600/400",
-    after: "https://picsum.photos/id/103/600/400",
+    images: [
+      "https://picsum.photos/id/102/600/400",
+      "https://picsum.photos/id/103/600/400",
+      "https://picsum.photos/id/104/600/400",
+    ],
+    mainImage: "https://picsum.photos/id/1018/600/400",
   },
 
   {
@@ -49,8 +57,11 @@ export const servicesData = [
       { label: "5 BHK", price: 12999 },
     ],
     reviews: makeReviews("Sofa", 12),
-    before: "https://picsum.photos/id/1060/600/400",
-    after: "https://picsum.photos/id/1062/600/400",
+    images: [
+      "https://picsum.photos/id/1060/600/400",
+      "https://picsum.photos/id/1062/600/400",
+    ],
+    mainImage: "https://picsum.photos/id/1018/600/400",
   },
 
   {
@@ -67,8 +78,11 @@ export const servicesData = [
     ],
     scope: "Mattress & carpet cleaning",
     reviews: makeReviews("Mattress", 12),
-    before: "https://picsum.photos/id/1076/600/400",
-    after: "https://picsum.photos/id/1084/600/400",
+    images: [
+      "https://picsum.photos/id/1076/600/400",
+      "https://picsum.photos/id/1084/600/400",
+    ],
+    mainImage: "https://picsum.photos/id/1018/600/400",
   },
 
   {
@@ -85,8 +99,11 @@ export const servicesData = [
     ],
     scope: "Balcony cleaning",
     reviews: makeReviews("Balcony", 10),
-    before: "https://picsum.photos/id/1056/600/400",
-    after: "https://picsum.photos/id/1059/600/400",
+    images: [
+      "https://picsum.photos/id/1056/600/400",
+      "https://picsum.photos/id/1059/600/400",
+    ],
+    mainImage: "https://picsum.photos/id/1018/600/400",
   },
 
   {
@@ -103,8 +120,11 @@ export const servicesData = [
     ],
     scope: "Parking cleaning",
     reviews: makeReviews("Parking", 10),
-    before: "https://picsum.photos/id/1043/600/400",
-    after: "https://picsum.photos/id/1049/600/400",
+    images: [
+      "https://picsum.photos/id/1043/600/400",
+      "https://picsum.photos/id/1049/600/400",
+    ],
+    mainImage: "https://picsum.photos/id/1018/600/400",
   },
 
   {
@@ -121,8 +141,11 @@ export const servicesData = [
     ],
     scope: "Terrace cleaning",
     reviews: makeReviews("Terrace", 10),
-    before: "https://picsum.photos/id/1011/600/400",
-    after: "https://picsum.photos/id/1012/600/400",
+    images: [
+      "https://picsum.photos/id/1011/600/400",
+      "https://picsum.photos/id/1012/600/400",
+    ],
+    mainImage: "https://picsum.photos/id/1018/600/400",
   },
 
   {
@@ -139,22 +162,28 @@ export const servicesData = [
     ],
     scope: "Wall washing",
     reviews: makeReviews("Wall", 10),
-    before: "https://picsum.photos/id/1003/600/400",
-    after: "https://picsum.photos/id/1005/600/400",
+    images: [
+      "https://picsum.photos/id/1003/600/400",
+      "https://picsum.photos/id/1005/600/400",
+    ],
+    mainImage: "https://picsum.photos/id/1018/600/400",
   },
 
   {
     id: "window",
     title: "Window & Glass Cleaning",
+    rating: 4.6,
     priceOptions: [
       { label: "Small", price: 250 },
       { label: "Big", price: 350 },
     ],
     scope: "Window & glass cleaning",
-    rating: 4.6,
     reviews: makeReviews("Window", 12),
-    before: "https://picsum.photos/id/1033/600/400",
-    after: "https://picsum.photos/id/1035/600/400",
+    images: [
+      "https://picsum.photos/id/1033/600/400",
+      "https://picsum.photos/id/1035/600/400",
+    ],
+    mainImage: "https://picsum.photos/id/1018/600/400",
   },
 
   {
@@ -171,15 +200,17 @@ export const servicesData = [
     ],
     scope: "Office cleaning",
     reviews: makeReviews("Office", 15),
-    before: "https://picsum.photos/id/1019/600/400",
-    after: "https://picsum.photos/id/1020/600/400",
+    images: [
+      "https://picsum.photos/id/1019/600/400",
+      "https://picsum.photos/id/1020/600/400",
+    ],
+    mainImage: "https://picsum.photos/id/1018/600/400",
   },
 
   {
     id: "shops",
     title: "Shops Cleaning",
     price: 1299,
-    scope: "Shops cleaning",
     rating: 4.6,
     priceOptions: [
       { label: "1 BHK", price: 4999 },
@@ -188,8 +219,12 @@ export const servicesData = [
       { label: "4 BHK", price: 10999 },
       { label: "5 BHK", price: 12999 },
     ],
+    scope: "Shops cleaning",
     reviews: makeReviews("Shops", 12),
-    before: "https://picsum.photos/id/1027/600/400",
-    after: "https://picsum.photos/id/1028/600/400",
+    images: [
+      "https://picsum.photos/id/1027/600/400",
+      "https://picsum.photos/id/1028/600/400",
+    ],
+    mainImage: "https://picsum.photos/id/1018/600/400",
   },
 ];

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useCallback } from "react"; // Added useEffect, useCallback
 import { motion, AnimatePresence } from "framer-motion";
 import type { Service } from "../types/types";
 
@@ -19,11 +19,43 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
   );
   const [added, setAdded] = React.useState(false);
 
+  // 🔁 Carousel state
+  const [current, setCurrent] = React.useState(0);
+
+  // Support multiple images safely
+  const images =
+    service?.images && service.images.length > 0
+      ? service.images
+      : service
+        ? [service.mainImage]
+        : [];
+
+  // ✅ Memoized next function for the timer
+  const next = useCallback(() => {
+    setCurrent((prev) => (prev + 1) % images.length);
+  }, [images.length]);
+
+  const prev = () =>
+    setCurrent((prev) => (prev - 1 + images.length) % images.length);
+
+  // ✅ AUTO-CHANGE LOGIC
+  useEffect(() => {
+    if (images.length <= 1) return;
+
+    const timer = setInterval(() => {
+      next();
+    }, 3000); // Changes every 3 seconds
+
+    return () => clearInterval(timer); // Cleanup on unmount or service change
+  }, [next, images.length]);
+
   React.useEffect(() => {
     if (!service) return;
+
     setQty(1);
     setPrice(service.priceOptions?.[0]?.price ?? service.price ?? 0);
     setAdded(false);
+    setCurrent(0);
   }, [service]);
 
   if (!service) return null;
@@ -60,29 +92,51 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
 
           {/* Body */}
           <div className="grid md:grid-cols-2 gap-6 p-6 max-h-[70vh] overflow-y-auto">
-            {/* Left */}
+            {/* LEFT */}
             <div className="space-y-6">
-              {/* Images */}
-              <div className="grid grid-cols-2 gap-4">
-                <div className="relative">
-                  <img
-                    src={service.before}
-                    alt="Before"
-                    className="rounded-xl h-40 w-full object-cover"
+              {/* ✅ IMAGE CAROUSEL (Manual + Auto) */}
+              <div className="relative rounded-2xl overflow-hidden h-56 bg-slate-100">
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={current}
+                    src={images[current]}
+                    alt="Service"
+                    className="absolute inset-0 w-full h-full object-cover"
+                    initial={{ opacity: 0, x: 40 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -40 }}
+                    transition={{ duration: 0.4 }}
                   />
-                  <span className="absolute top-2 left-2 text-xs bg-black/70 text-white px-2 py-1 rounded-full">
-                    Before
-                  </span>
-                </div>
-                <div className="relative">
-                  <img
-                    src={service.after}
-                    alt="After"
-                    className="rounded-xl h-40 w-full object-cover"
-                  />
-                  <span className="absolute top-2 left-2 text-xs bg-black/70 text-white px-2 py-1 rounded-full">
-                    After
-                  </span>
+                </AnimatePresence>
+
+                {/* Controls */}
+                {images.length > 1 && (
+                  <>
+                    <button
+                      onClick={prev}
+                      className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/50 text-white z-10 w-9 h-9 rounded-full flex items-center justify-center"
+                    >
+                      ‹
+                    </button>
+                    <button
+                      onClick={next}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/50 text-white z-10 w-9 h-9 rounded-full flex items-center justify-center"
+                    >
+                      ›
+                    </button>
+                  </>
+                )}
+
+                {/* Dots */}
+                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                  {images.map((_, i) => (
+                    <div
+                      key={i}
+                      className={`h-2 w-2 rounded-full transition-all ${
+                        i === current ? "bg-white" : "bg-white/40"
+                      }`}
+                    />
+                  ))}
                 </div>
               </div>
 
@@ -103,28 +157,30 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
 
               {/* Price Options */}
               {service.priceOptions && (
-                <select
-                  className="w-full border rounded-xl px-4 py-3"
-                  value={price}
-                  onChange={(e) => setPrice(Number(e.target.value))}
-                >
-                  {service.priceOptions.map((opt) => (
-                    <option key={opt.label}>
-                      {opt.label} — ₹{opt.price}
-                    </option>
-                  ))}
-                </select>
+                <>
+                  <select
+                    className="w-100 border rounded-xl px-4 py-3 me-5 inline"
+                    value={price}
+                    onChange={(e) => setPrice(Number(e.target.value))}
+                  >
+                    {service.priceOptions.map((opt) => (
+                      <option key={opt.label} value={opt.price}>
+                        {opt.label} — ₹{opt.price}
+                      </option>
+                    ))}
+                  </select>
+                  <input
+                    type="number"
+                    min={1}
+                    value={qty}
+                    onChange={(e) => setQty(Number(e.target.value))}
+                    className="w-24 border rounded-xl px-4 py-2 inline"
+                  />
+                </>
               )}
-              <input
-                type="number"
-                min={1}
-                value={qty}
-                onChange={(e) => setQty(Number(e.target.value))}
-                className="w-24 border rounded-xl px-4 py-2 mt-3"
-              />
             </div>
 
-            {/* Right */}
+            {/* RIGHT */}
             <div>
               <h3 className="font-semibold mb-2">Scope of Work</h3>
               <pre className="text-sm text-slate-600 whitespace-pre-wrap font-sans">
@@ -147,20 +203,15 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
             </button>
             <button
               onClick={() => {
-                if (!service) return;
-
                 onAdd(service, price, qty);
-
                 setAdded(true);
                 setTimeout(() => setAdded(false), 1200);
               }}
-              className={`px-6 py-2 rounded-xl font-semibold transition-all
-    ${
-      added
-        ? "bg-emerald-100 text-emerald-700"
-        : "bg-gradient-to-r from-[#0F766E] to-[#14B8A6] text-white"
-    }
-  `}
+              className={`px-6 py-2 rounded-xl font-semibold transition-all ${
+                added
+                  ? "bg-emerald-100 text-emerald-700"
+                  : "bg-gradient-to-r from-[#0F766E] to-[#14B8A6] text-white"
+              }`}
             >
               {added ? "Added ✓" : "Add to booking"}
             </button>

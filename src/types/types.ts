@@ -11,9 +11,9 @@ export interface Service {
   price?: number;
   priceOptions?: PriceOption[];
   scope: string;
+  images: string[];
+  mainImage: string;
   reviews: unknown[];
-  before: string;
-  after: string;
 }
 export interface PriceOption {
   label: string;

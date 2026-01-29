@@ -8,9 +8,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   onClick,
   onAdd,
 }) => {
-  const [showAfter, setShowAfter] = useState(false);
   const [qty, setQty] = useState(1);
   const [added, setAdded] = useState(false);
+
+  console.log(service);
 
   const defaultPrice = service.priceOptions?.[0]?.price ?? service.price ?? 0;
 
@@ -37,20 +38,12 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       ${added ? "ring-2 ring-[#0F766E]" : "border-[#E5E7EB]"}`}
     >
       {/* IMAGE */}
-      <div
-        className="relative h-36 sm:h-48 overflow-hidden"
-        onMouseEnter={() => setShowAfter(true)}
-        onMouseLeave={() => setShowAfter(false)}
-      >
+      <div className="relative h-36 sm:h-48 overflow-hidden">
         <img
-          src={showAfter ? service.after : service.before}
+          src={service.mainImage}
           alt={service.title}
           className="w-full h-full object-cover transition duration-700"
         />
-
-        <span className="absolute top-2 left-2 text-[10px] px-2 py-0.5 rounded-full bg-black/60 text-white">
-          {showAfter ? "After" : "Before"}
-        </span>
       </div>
 
       {/* CONTENT */}
