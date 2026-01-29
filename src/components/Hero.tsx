@@ -55,7 +55,7 @@ const Hero = () => {
         {/* Stats */}
         <div className="mt-8 flex gap-10">
           <div>
-            <div className="text-3xl font-bold text-[#1c67d2]">4.6</div>
+            <div className="text-3xl font-bold text-[#1c67d2]">4.8</div>
             <div className="text-sm text-slate-500">Average rating</div>
           </div>
           <div>
