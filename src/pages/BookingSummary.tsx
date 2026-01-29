@@ -114,10 +114,10 @@ Total Payable: ₹${totalPayable.toFixed(0)}
                   initial={{ opacity: 0, scale: 0.98 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, x: -20 }}
-                  className="group flex items-center justify-between p-4 bg-white border border-slate-100 rounded-2xl hover:border-emerald-200 hover:shadow-xl hover:shadow-emerald-50 transition-all duration-300"
+                  className="group flex items-center justify-between p-4 bg-white border border-slate-100 rounded-2xl hover:border-[#1c67d2] hover:shadow-xl hover:shadow-[#daedf9] transition-all duration-300"
                 >
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center font-black text-base border border-emerald-100/50">
+                    <div className="w-12 h-12 bg-[#daedf9] text-[#1c67d2] rounded-xl flex items-center justify-center font-black text-base border border-[#3295CF]-100/50">
                       {item.quantity}x
                     </div>
                     <div>
@@ -170,13 +170,13 @@ Total Payable: ₹${totalPayable.toFixed(0)}
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   className="peer w-full bg-white border border-slate-200 rounded-2xl px-4 py-4 text-sm font-bold outline-none 
-          focus:border-[#14B8A6] focus:ring-4 focus:ring-[#14B8A6]/5 transition-all shadow-sm"
+          focus:border-[#1c67d2] focus:ring-4 focus:ring-[#14B8A6]/5 transition-all shadow-sm"
                 />
                 <label
                   htmlFor="fullname"
                   className="absolute rounded-full left-4 top-4 text-slate-400 text-sm font-medium transition-all duration-200
           pointer-events-none
-          peer-focus:-top-2.5 peer-focus:left-3 peer-focus:text-[10px] peer-focus:font-black peer-focus:text-[#0F766E] peer-focus:bg-white peer-focus:px-2 peer-focus:rounded-full
+          peer-focus:-top-2.5 peer-focus:left-3 peer-focus:text-[10px] peer-focus:font-black peer-focus:text-[#1c67d2] peer-focus:bg-white peer-focus:px-2 peer-focus:rounded-full
           peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-3 peer-[:not(:placeholder-shown)]:text-[10px] peer-[:not(:placeholder-shown)]:font-black peer-[:not(:placeholder-shown)]:bg-white peer-[:not(:placeholder-shown)]:px-2"
                 >
                   FULL NAME
@@ -192,13 +192,13 @@ Total Payable: ₹${totalPayable.toFixed(0)}
                   value={mobile}
                   onChange={(e) => setMobile(e.target.value)}
                   className="peer w-full bg-white border border-slate-200 rounded-2xl px-4 py-4 text-sm font-bold outline-none 
-          focus:border-[#14B8A6] focus:ring-4 focus:ring-[#14B8A6]/5 transition-all shadow-sm"
+          focus:border-[#1c67d2] focus:ring-4 focus:ring-[#14B8A6]/5 transition-all shadow-sm"
                 />
                 <label
                   htmlFor="mobile"
                   className="absolute rounded-full left-4 top-4 text-slate-400 text-sm font-medium transition-all duration-200
           pointer-events-none
-          peer-focus:-top-2.5 peer-focus:rounded-full peer-focus:left-3 peer-focus:text-[10px] peer-focus:font-black peer-focus:text-[#0F766E] peer-focus:bg-white peer-focus:px-2
+          peer-focus:-top-2.5 peer-focus:rounded-full peer-focus:left-3 peer-focus:text-[10px] peer-focus:font-black peer-focus:text-[#1c67d2] peer-focus:bg-white peer-focus:px-2
           peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-3 peer-[:not(:placeholder-shown)]:text-[10px] peer-[:not(:placeholder-shown)]:font-black peer-[:not(:placeholder-shown)]:bg-white peer-[:not(:placeholder-shown)]:px-2"
                 >
                   MOBILE NUMBER
@@ -214,13 +214,13 @@ Total Payable: ₹${totalPayable.toFixed(0)}
                   onChange={(e) => setAddress(e.target.value)}
                   rows={2}
                   className="peer w-full  bg-white border border-slate-200 rounded-2xl px-4 py-4 text-sm font-bold outline-none 
-          focus:border-[#14B8A6] focus:ring-4 focus:ring-[#14B8A6]/5 transition-all shadow-sm resize-none"
+          focus:border-[#1c67d2] focus:ring-4 focus:ring-[#14B8A6]/5 transition-all shadow-sm resize-none"
                 />
                 <label
                   htmlFor="address"
                   className="absolute rounded-full left-4 top-4 text-slate-400 text-sm font-medium transition-all duration-200
           pointer-events-none
-          peer-focus:-top-2.5 peer-focus:rounded-full peer-focus:left-3 peer-focus:text-[10px] peer-focus:font-black peer-focus:text-[#0F766E] peer-focus:bg-white peer-focus:px-2
+          peer-focus:-top-2.5 peer-focus:rounded-full peer-focus:left-3 peer-focus:text-[10px] peer-focus:font-black peer-focus:text-[#1c67d2] peer-focus:bg-white peer-focus:px-2
           peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-3 peer-[:not(:placeholder-shown)]:text-[10px] peer-[:not(:placeholder-shown)]:font-black peer-[:not(:placeholder-shown)]:bg-white peer-[:not(:placeholder-shown)]:px-2"
                 >
                   COMPLETE ADDRESS
@@ -230,7 +230,7 @@ Total Payable: ₹${totalPayable.toFixed(0)}
 
             {/* Coupon Bar */}
             {/* Updated Responsive Coupon Bar */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 p-1.5 bg-white border border-slate-200 rounded-2xl sm:rounded-full shadow-inner focus-within:border-[#14B8A6] transition-colors">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 p-1.5 bg-white border border-slate-200 rounded-2xl sm:rounded-full shadow-inner focus-within:border-[#1c67d2] transition-colors">
               <div className="flex items-center flex-1">
                 <div className="pl-3 text-slate-400">🏷️</div>
                 <input
@@ -268,7 +268,7 @@ Total Payable: ₹${totalPayable.toFixed(0)}
 
             <div className="flex justify-between items-center pt-2">
               <span className="text-lg font-bold">Total</span>
-              <span className="text-3xl font-black text-emerald-600">
+              <span className="text-3xl font-black text-[#1c67d2]">
                 ₹{totalPayable.toFixed(0)}
               </span>
             </div>
@@ -288,7 +288,7 @@ Total Payable: ₹${totalPayable.toFixed(0)}
                   alert("Please fill all details before confirming");
                 }
               }}
-              className="md:col-span-2 flex items-center justify-center gap-3 py-2  bg-gradient-to-r from-[#0F766E] to-[#14B8A6] text-white rounded-2xl font-bold text-sm shadow-xl shadow-emerald-200 transition-all"
+              className="md:col-span-2 flex items-center justify-center gap-3 py-2  bg-gradient-to-r from-[#1c67d2] to-[#3295CF] text-white rounded-2xl font-bold text-sm shadow-xl shadow-[#b0d8ef] transition-all"
             >
               <span>Confirm Booking</span>
               <span className="text-lg">→</span>

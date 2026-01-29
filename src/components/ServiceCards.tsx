@@ -35,7 +35,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       onClick={() => onClick(service)}
       className={`relative bg-white/80 backdrop-blur-xl rounded-2xl shadow-lg
       hover:shadow-xl transition overflow-hidden border
-      ${added ? "ring-2 ring-[#0F766E]" : "border-[#E5E7EB]"}`}
+      ${added ? "ring-2 ring-[#1c67d2]" : "border-[#E5E7EB]"}`}
     >
       {/* IMAGE */}
       <div className="relative h-36 sm:h-48 overflow-hidden">
@@ -62,7 +62,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         )}
 
         {/* PRICE */}
-        <div className="text-base sm:text-xl font-bold text-[#0F766E]">
+        <div className="text-base sm:text-xl font-bold text-[#1c67d2]">
           From ₹{defaultPrice}
         </div>
 
@@ -94,7 +94,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             <button
               onClick={handleAdd}
               className="flex-1 py-2 rounded-xl font-semibold bg-gradient-to-r
-              from-[#0F766E] to-[#14B8A6] text-white hover:shadow-lg transition"
+              from-[#1c67d2] to-[#3295CF] text-white hover:shadow-lg transition"
             >
               {added ? "Added ✓" : "Add"}
             </button>

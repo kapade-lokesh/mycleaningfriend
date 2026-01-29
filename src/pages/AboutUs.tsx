@@ -13,7 +13,7 @@ export default function AboutUS() {
           className="max-w-3xl mx-auto text-center"
         >
           <h2 className="text-4xl font-black text-slate-900">
-            About <span className="text-[#0F766E]">My Cleaning Friend</span>
+            About <span className="text-[#1c67d2]">My Cleaning Friend</span>
           </h2>
 
           <p className="mt-4 text-lg text-slate-600 leading-relaxed">
@@ -65,15 +65,15 @@ export default function AboutUS() {
     group relative rounded-[2.5rem] p-8
     bg-gradient-to-b from-white to-slate-50/50
     border-2 border-slate-500
-    shadow-[0_10px_30px_-15px_rgba(15,118,110,0.1)]
-    hover:shadow-[0_25px_60px_-12px_rgba(15,118,110,0.2)]
+    shadow-[#badcf1]
+    hover:shadow-[#b1d7ef]
     hover:-translate-y-2
     transition-all duration-500 ease-out
     overflow-hidden
   "
             >
               {/* 1. Animated Gradient Glow (Visible on Hover) */}
-              <div className="absolute -inset-24 bg-[radial-gradient(circle_at_center,#14B8A6_0%,transparent_70%)] opacity-0 group-hover:opacity-[0.08] transition-opacity duration-700 blur-3xl pointer-events-none" />
+              <div className="absolute -inset-24 bg-[radial-gradient(circle_at_center,#1c67d2_0%,transparent_70%)] opacity-0 group-hover:opacity-[0.08] transition-opacity duration-700 blur-3xl pointer-events-none" />
 
               {/* 2. Abstract Geometric Accent */}
               <div className="absolute top-[-10%] right-[-10%] w-32 h-32 bg-[#ECFEFF] rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
@@ -82,7 +82,7 @@ export default function AboutUS() {
               <div
                 className="
       relative z-10 w-14 h-14 mb-6 rounded-2xl
-      bg-gradient-to-br from-[#0F766E] to-[#14B8A6]
+      bg-gradient-to-br from-[#1c67d2] to-[#3295CF]
       text-white shadow-lg shadow-[#0F766E]/20
       flex items-center justify-center
       text-xl transform rotate-[-5deg]
@@ -96,7 +96,7 @@ export default function AboutUS() {
 
               {/* 4. Content with Refined Typography */}
               <div className="relative z-10">
-                <h4 className="font-black text-slate-900 text-xl tracking-tight group-hover:text-[#0F766E] transition-colors duration-300">
+                <h4 className="font-black text-slate-900 text-xl tracking-tight group-hover:text-[#1c67d2] transition-colors duration-300">
                   {service.title}
                 </h4>
 
@@ -106,8 +106,8 @@ export default function AboutUS() {
 
                 {/* 5. Subtle "Learn More" or Progress Indicator */}
                 <div className="mt-6 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
-                  <span className="h-[2px] w-8 bg-[#14B8A6] rounded-full" />
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-[#0F766E]">
+                  <span className="h-[2px] w-8 bg-[#3295CF] rounded-full" />
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-[#1c67d2]">
                     Explore Service
                   </span>
                 </div>
@@ -127,7 +127,7 @@ export default function AboutUS() {
           className="mt-28"
         >
           <h3 className="text-3xl text-center font-black text-slate-900 mb-6">
-            Our Leadership <span className="text-[#0F766E]">Team</span>
+            Our Leadership <span className="text-[#1c67d2]">Team</span>
           </h3>
           <div className="grid sm:grid-cols-2 gap-16 max-w-4xl mx-auto py-20 px-4">
             {[

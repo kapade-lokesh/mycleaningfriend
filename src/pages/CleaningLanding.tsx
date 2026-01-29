@@ -66,7 +66,7 @@ export default function CleaningLanding() {
         {/* Top diagonal cut background */}
         <div
           className="absolute inset-0 bg-gradient-to-r
-    from-[#0F766E] to-[#14B8A6]"
+    from-[#1c67d2] to-[#3295CF]"
           style={{
             clipPath: "polygon(0 30%, 100% 0%, 100% 70%, 0% 100%)",
           }}

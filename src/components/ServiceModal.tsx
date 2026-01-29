@@ -147,7 +147,7 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
               </div>
 
               {/* Price */}
-              <div className="text-2xl font-bold text-[#0F766E]">
+              <div className="text-2xl font-bold text-[#1c67d2]">
                 {service.priceOptions?.length
                   ? `From ₹${service.priceOptions[0].price}`
                   : service.price
@@ -209,8 +209,8 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
               }}
               className={`px-6 py-2 rounded-xl font-semibold transition-all ${
                 added
-                  ? "bg-emerald-100 text-emerald-700"
-                  : "bg-gradient-to-r from-[#0F766E] to-[#14B8A6] text-white"
+                  ? "bg-[#3295CF]  text-white"
+                  : "bg-gradient-to-r from-[#1c67d2] to-[#3295CF] text-white"
               }`}
             >
               {added ? "Added ✓" : "Add to booking"}

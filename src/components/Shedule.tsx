@@ -7,7 +7,7 @@ const Shedule = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
         viewport={{ once: true }}
-        className="relative max-w-4xl mx-auto bg-gradient-to-r from-[#0F766E] to-[#14B8A6]
+        className="relative max-w-4xl mx-auto bg-gradient-to-r from-[#1c67d2] to-[#3295CF]
           text-white rounded-3xl px-10 py-16 text-center shadow-2xl overflow-hidden"
       >
         <div className="absolute inset-0 bg-white/10 blur-3xl"></div>
@@ -21,7 +21,7 @@ const Shedule = () => {
         </p>
 
         <button
-          className="relative mt-8 bg-white text-[#0F766E]
+          className="relative mt-8 bg-white text-[#1c67d2]
             px-8 py-3 rounded-xl font-semibold shadow hover:bg-emerald-50 transition"
         >
           Schedule Cleaning

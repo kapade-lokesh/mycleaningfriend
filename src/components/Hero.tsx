@@ -13,7 +13,7 @@ const Hero = () => {
       >
         <h2 className="text-3xl md:text-4xl font-bold">
           All Types of Deep Cleaning —{" "}
-          <span className="text-[#0F766E]">Fast, Safe & Trusted</span>
+          <span className="text-[#1c67d2]">Fast, Safe & Trusted</span>
         </h2>
 
         <p className="mt-4 text-slate-600 max-w-xl">
@@ -38,7 +38,7 @@ const Hero = () => {
         <div className="mt-8 flex gap-4">
           <a
             href="#services"
-            className="bg-gradient-to-r from-[#0F766E] to-[#14B8A6]
+            className="bg-gradient-to-r from-[#1c67d2] to-[#3295CF]
               text-white px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition"
           >
             Book a Cleaning
@@ -55,13 +55,13 @@ const Hero = () => {
         {/* Stats */}
         <div className="mt-8 flex gap-10">
           <div>
-            <div className="text-3xl font-bold text-[#0F766E]">4.6</div>
+            <div className="text-3xl font-bold text-[#1c67d2]">4.6</div>
             <div className="text-sm text-slate-500">Average rating</div>
           </div>
           <div>
             {/* <div className="text-3xl font-bold text-[#0F766E]">10,000+</div> */}
             <AnimatedCounter value={10000} />
-            <span className="text-3xl font-bold text-[#0F766E]">+</span>
+            <span className="text-3xl font-bold text-[#1c67d2]">+</span>
             <div className="text-sm text-slate-500">Happy customers</div>
           </div>
         </div>
@@ -74,8 +74,8 @@ const Hero = () => {
         transition={{ duration: 0.8 }}
         className="relative"
       >
-        <div className="absolute -top-16 -left-16 w-64 h-64 bg-[#CCFBF1] rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-16 -right-16 w-64 h-64 bg-[#ECFEFF] rounded-full blur-3xl"></div>
+        <div className="absolute -top-16 -left-16 w-64 h-64 bg-[#bbdff4] rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-16 -right-16 w-64 h-64 bg-[#cbe9fa] rounded-full blur-3xl"></div>
 
         <div className="relative overflow-hidden rounded-3xl shadow-2xl border border-white/60">
           <motion.div

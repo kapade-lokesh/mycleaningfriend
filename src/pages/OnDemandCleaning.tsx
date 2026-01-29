@@ -17,7 +17,7 @@ const OnDemandCleaning: React.FC = () => {
           className="text-center mb-12"
         >
           <h2 className="text-4xl font-bold">
-            On-Demand <span className="text-[#0F766E]">Cleaning</span>
+            On-Demand <span className="text-[#1c67d2]">Cleaning</span>
           </h2>
           <p className="mt-4 text-slate-600 max-w-2xl mx-auto">
             Describe your custom cleaning requirement. Add it to booking or send
@@ -47,7 +47,7 @@ const OnDemandCleaning: React.FC = () => {
             placeholder="e.g. Deep kitchen degrease + balcony wash; 2 BHK; preferred time: 10am–1pm"
             className="w-full resize-none rounded-2xl border border-slate-300
             px-5 py-4 text-slate-700 placeholder-slate-400
-            focus:outline-none focus:ring-2 focus:ring-[#0F766E]
+            focus:outline-none focus:ring-2 focus:ring-[#1c67d2]
             bg-white"
           />
 
@@ -76,9 +76,9 @@ const OnDemandCleaning: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="flex-1  flex items-center justify-center gap-2
-              bg-white border border-[#0F766E]
-              text-[#0F766E] py-3 rounded-xl font-semibold
-              hover:bg-[#ECFEFF] transition"
+              bg-white border border-[#1c67d2]
+              text-[#1c67d2] py-3 rounded-xl font-semibold
+              hover:bg-[#daedf9] transition"
             >
               <Send size={18} />
               Send on WhatsApp

@@ -17,7 +17,7 @@ const AnimatedCounter = ({ value }: { value: number }) => {
   }, [value]);
 
   return (
-    <motion.span className="text-3xl font-bold text-[#0F766E] inline-block">
+    <motion.span className="text-3xl font-bold text-[#1c67d2] inline-block">
       {rounded}
     </motion.span>
   );
