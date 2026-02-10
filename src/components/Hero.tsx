@@ -1,8 +1,13 @@
 import { motion } from "framer-motion";
-import uc from "../assets/logos/UC-image.png";
-import ht from "../assets/logos/Home-Triangle-Image.png";
-import nb from "../assets/logos/Nobroker-Image.png";
+// import uc from "../assets/logos/UC-image.png";
+// import ht from "../assets/logos/Home-Triangle-Image.png";
+// import nb from "../assets/logos/Nobroker-Image.png";
+import HERO1 from "../assets/Hero-images/HERO1.webp";
+import HERO2 from "../assets/Hero-images/HERO2.webp";
+import HERO3 from "../assets/Hero-images/HERO3.jpg";
+import HERO4 from "../assets/Hero-images/HERO4.webp";
 import AnimatedCounter from "./AnimatedCounter";
+
 const Hero = () => {
   return (
     <section className="grid md:grid-cols-2 gap-12 items-center max-w-7xl mx-auto px-6 pt-20 pb-28">
@@ -25,14 +30,14 @@ const Hero = () => {
         </p>
 
         {/* Partners */}
-        <div className="mt-6 flex items-center gap-6">
+        {/* <div className="mt-6 flex items-center gap-6">
           <div className="text-sm font-semibold text-slate-500">
             Partner With
           </div>
           <img src={uc} alt="Urban Company" className="h-14 rounded-xl" />
           <img src={ht} alt="HomeTriangle" className="h-14 rounded-xl" />
           <img src={nb} alt="NoBroker" className="h-14 rounded-xl" />
-        </div>
+        </div> */}
 
         {/* CTA */}
         <div className="mt-8 flex gap-4">
@@ -83,14 +88,10 @@ const Hero = () => {
             animate={{ x: ["0%", "-100%", "-200%", "0%"] }}
             transition={{ duration: 12, ease: "easeInOut", repeat: Infinity }}
           >
-            {[
-              "1581578731548-c64695cc6952",
-              "1600585154340-be6161a56a0c",
-              "1581578731548-c64695cc6952",
-            ].map((img) => (
+            {[HERO1, HERO2, HERO3, HERO4].map((img) => (
               <img
                 key={img}
-                src={`https://images.unsplash.com/photo-${img}?auto=format&fit=crop&w=1200&q=80`}
+                src={img}
                 alt="Cleaning service"
                 className="w-full h-[420px] object-cover flex-shrink-0"
               />

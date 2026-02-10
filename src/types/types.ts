@@ -8,7 +8,7 @@ export interface Service {
   id: string;
   title: string;
   rating?: number;
-  price?: number;
+  price?: number | string;
   priceOptions?: PriceOption[];
   scope: string;
   images: string[];
@@ -17,7 +17,7 @@ export interface Service {
 }
 export interface PriceOption {
   label: string;
-  price: number;
+  price?: number | string;
   ratingCount?: number;
 }
 
