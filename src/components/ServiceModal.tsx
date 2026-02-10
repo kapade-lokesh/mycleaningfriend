@@ -203,7 +203,7 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
             </button>
             <button
               onClick={() => {
-                onAdd(service, price, qty);
+                onAdd(service, Number(price), qty);
                 setAdded(true);
                 setTimeout(() => setAdded(false), 1200);
               }}
