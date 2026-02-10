@@ -11,11 +11,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   const [qty, setQty] = useState(1);
   const [added, setAdded] = useState(false);
 
-  console.log(service);
-
   const defaultPrice = service.priceOptions?.[0]?.price ?? service.price ?? 0;
 
-  const [price, setPrice] = useState<number>(defaultPrice);
+  const [price, setPrice] = useState<number>(Number(defaultPrice));
 
   const handleAdd = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -105,7 +103,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         <button
           onClick={(e) => {
             e.stopPropagation();
-            onAdd(service, defaultPrice, 1);
+            onAdd(service, Number(defaultPrice), 1);
             setAdded(true);
             setTimeout(() => setAdded(false), 1200);
           }}
