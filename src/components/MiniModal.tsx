@@ -10,7 +10,7 @@ interface MiniModalProps {
 }
 
 const MiniModal: React.FC<MiniModalProps> = ({ Data, onClose, onAdd }) => {
-  const [activeService, setActiveService] = useState<Service | null>(null);
+  const [, setActiveService] = useState<Service | null>(null);
 
   if (!Data) return null;
 
