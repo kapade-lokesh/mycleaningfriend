@@ -16,9 +16,33 @@ const Hero = () => {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <h2 className="text-3xl md:text-3xl uppercase font-bold">
-          <span className="bg-gradient-to-r from-[#1c67d2] to-[#3295CF]
-              text-white px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition">
+        <h2 className="w-full text-left">
+          <span
+            className="
+      inline-block
+      text-lg
+      sm:text-xl
+      md:text-2xl
+      lg:text-3xl
+      uppercase
+      font-bold
+      bg-gradient-to-r
+      from-[#1c67d2]
+      to-[#3295CF]
+      text-white
+      px-4
+      py-2
+      sm:px-5
+      sm:py-3
+      md:px-6
+      rounded-xl
+      shadow-lg
+      hover:shadow-xl
+      transition
+      break-words
+      max-w-full
+    "
+          >
             My Cleaning Friend
           </span>
         </h2>

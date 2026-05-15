@@ -2,6 +2,7 @@ import { makeReviews } from "./utils/makeReviews";
 
 //Full Home Cleaning Services
 import FHCHERO from "./assets/FHC-images/FHCHERO.webp";
+import FHCHERO2 from "./assets/FHC-images/FHCHERO2.webp";
 import FHCROOM1 from "./assets/FHC-images/FHCROOM1.webp";
 import FHCROOM2 from "./assets/FHC-images/FHCROOM2.webp";
 
@@ -11,6 +12,9 @@ import SOFA4 from "./assets/Sofa-images/SOFA4.webp";
 import BED1 from "./assets/Sofa-images/BED1.webp";
 import BED2 from "./assets/Sofa-images/BED2.webp";
 import BED3 from "./assets/Sofa-images/BED3.webp";
+
+//mini services
+import MINI from "./assets/Mini/Mini.webp";
 
 //Mattress & Carpet Cleaning
 import MATTRESSMAIN from "./assets/Mattress-Images/Mattress-main.webp";
@@ -73,8 +77,8 @@ export const servicesData = [
     ],
     secondtitle: "Furnished",
     scope:
-      "Full Home Deep Cleaning, Kitchen Interior Cleaning, Chimney Cleaning, Sofa Dry Vacuum, Bathroom Deep Cleaning, Balcony Cleaning",
-    reviews: makeReviews("Home", 15),
+      "Full Home Deep Cleaning, Kitchen Interior Cleaning, Windows Cleaning, Sofa Dry Vacuum, Bathroom Deep Cleaning, Balcony Cleaning",
+    reviews: makeReviews(15),
     images: [FHCROOM1, FHCROOM2],
     mainImage: FHCHERO,
   },
@@ -92,10 +96,10 @@ export const servicesData = [
     ],
     secondtitle: "Unfurnished",
     scope:
-      "Full Home Deep Cleaning, Kitchen Interior Cleaning, Chimney Cleaning, Sofa Dry Vacuum, Bathroom Deep Cleaning, Balcony Cleaning",
-    reviews: makeReviews("Home", 15),
+      "Full Home Deep Cleaning, Kitchen Interior Cleaning, Windows Cleaning, Sofa Dry Vacuum, Bathroom Deep Cleaning, Balcony Cleaning",
+    reviews: makeReviews(15),
     images: [FHCROOM1, FHCROOM2],
-    mainImage: FHCHERO,
+    mainImage: FHCHERO2,
   },
 
   {
@@ -110,8 +114,8 @@ export const servicesData = [
       { label: "5 BHK", price: 10999 },
     ],
     scope:
-      "Bungalow deep cleaning, Kitchen Interior Cleaning, Chimney Cleaning, Sofa Dry Vacuum, Bathroom Deep Cleaning, Balcony Cleaning",
-    reviews: makeReviews("Bungalow", 12),
+      "Bungalow deep cleaning, Kitchen Interior Cleaning, Windows Cleaning, Sofa Dry Vacuum, Bathroom Deep Cleaning, Balcony Cleaning",
+    reviews: makeReviews(12),
     images: [FHCROOM1, FHCROOM2],
     mainImage: WGMAIN,
   },
@@ -125,7 +129,7 @@ export const servicesData = [
     rating: 4.6,
     priceOptions: [],
     scope: "Office Deep cleaning",
-    reviews: makeReviews("Office", 15),
+    reviews: makeReviews(15),
     images: [OFFICE1, OFFICE2, OFFICE3],
     mainImage: OFFICEMAIN,
   },
@@ -139,11 +143,8 @@ export const servicesData = [
     rating: 4.6,
     priceOptions: [],
     scope: "Shops cleaning",
-    reviews: makeReviews("Shops", 12),
-    images: [
-      "https://picsum.photos/id/1027/600/400",
-      "https://picsum.photos/id/1028/600/400",
-    ],
+    reviews: makeReviews(12),
+    images: [SHOPMAIN, SHOPMAIN],
     mainImage: SHOPMAIN,
   },
 
@@ -159,9 +160,9 @@ export const servicesData = [
     //   { label: "10 Seater", price: 1199 },
     //   { label: "12 Seater", price: 1399 },
     // ],
-    reviews: makeReviews("Sofa", 12),
+    reviews: makeReviews(12),
     images: [SOFA4, BED1, BED2, BED3],
-    mainImage: SOFAMAIN,
+    mainImage: MINI,
   },
 ];
 
@@ -178,7 +179,7 @@ export const miniServiceData = [
       { label: "10 Seater", price: 1199 },
       { label: "12 Seater", price: 1399 },
     ],
-    reviews: makeReviews("Sofa", 12),
+    reviews: makeReviews(12),
     images: [SOFA4, BED1, BED2, BED3],
     mainImage: SOFAMAIN,
   },
@@ -193,7 +194,7 @@ export const miniServiceData = [
       { label: "Double Bed", price: 699 },
     ],
     scope: "Mattress Wet Shampoo",
-    reviews: makeReviews("Mattress", 12),
+    reviews: makeReviews(12),
     images: [MATTRESS1, MATTRESS2, MATTRESS3],
     mainImage: MATTRESSMAIN,
   },
@@ -208,7 +209,7 @@ export const miniServiceData = [
       { label: "Balcony Big", price: "599" },
     ],
     scope: "Balcony cleaning",
-    reviews: makeReviews("Balcony", 10),
+    reviews: makeReviews(10),
     images: [BALCONY1, BALCONY2, BALCONY3],
     mainImage: BALCONYMAIN,
   },
@@ -222,7 +223,7 @@ export const miniServiceData = [
     rating: 4.6,
     priceOptions: [],
     scope: "Parking Deep Cleaning",
-    reviews: makeReviews("Parking", 10),
+    reviews: makeReviews(10),
     images: [PARK1, PARK2, PARK3],
     mainImage: PARKMAIN,
   },
@@ -236,7 +237,7 @@ export const miniServiceData = [
     rating: 4.6,
     priceOptions: [],
     scope: "Terrace cleaning",
-    reviews: makeReviews("Terrace", 10),
+    reviews: makeReviews(10),
     images: [TERA1, TERA2, TERA3],
     mainImage: TERAMAIN,
   },
@@ -254,7 +255,7 @@ export const miniServiceData = [
       { label: "5 BHK", price: 14999 },
     ],
     scope: "Wall Wet Shampoo Wash",
-    reviews: makeReviews("Wall", 10),
+    reviews: makeReviews(10),
     images: [WALL1, WALL2, WALL3, WALL4],
     mainImage: WALLMAIN,
   },
@@ -269,7 +270,7 @@ export const miniServiceData = [
       { label: "Big", price: 350 },
     ],
     scope: "Window & glass cleaning, Windows Track cleaning, Grill Cleaning",
-    reviews: makeReviews("Window", 12),
+    reviews: makeReviews(12),
     images: [WG1, WG2, WG3, WG4],
     mainImage: WGMAIN,
   },

@@ -18,7 +18,7 @@ const OurServices: React.FC<OurServicesProps> = ({ servicesData, onAdd }) => {
     <>
       <section
         id="services"
-        className="max-w-7xl mx-auto px-4 sm:px-6 pt-16 pb-10"
+        className="max-w-7xl mx-auto px-4 sm:px-6 pt-8 pb-10"
       >
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
