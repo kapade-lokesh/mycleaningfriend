@@ -129,7 +129,7 @@ export default function AboutUS() {
           <h3 className="text-3xl text-center font-black text-slate-900 mb-6">
             Our Leadership <span className="text-[#1c67d2]">Team</span>
           </h3>
-          <div className="grid sm:grid-cols-2 gap-16 max-w-4xl mx-auto py-20 px-4">
+          <div className="grid sm:grid-cols-1  max-w-2xl mx-auto py-20 px-4">
             {[
               {
                 name: "Hemant Kapade",
@@ -138,14 +138,6 @@ export default function AboutUS() {
                 instagram: "https://instagram.com/hemant_kapade",
                 linkedin: "https://linkedin.com/in/hemant-kapade1",
                 email: "mailto:hemantgkapade@gmail.com",
-              },
-              {
-                name: "Ramkrushn Dhorajkar",
-                role: "Co-Founder",
-                image: coFounder,
-                instagram: "https://instagram.com/vishaldhorajkar",
-                linkedin: "https://linkedin.com/in",
-                email: "mailto:ramkrushndhorajkar123@gmail.com",
               },
             ].map((leader) => (
               <motion.div

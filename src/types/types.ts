@@ -11,9 +11,14 @@ export interface Service {
   price?: number | string;
   priceOptions?: PriceOption[];
   scope: string;
+  secondtitle?: string;
+  pricePerSqft?: number;
   images: string[];
   mainImage: string;
   reviews: unknown[];
+  sqft?: number;
+  unit?: string;
+  quantity?: number;
 }
 export interface PriceOption {
   label: string;

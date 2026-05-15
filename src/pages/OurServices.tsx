@@ -3,6 +3,8 @@ import ServiceCard from "../components/ServiceCards";
 import ServiceModal from "../components/ServiceModal";
 import type { Service } from "../types/types";
 import { motion } from "framer-motion";
+import { miniServiceData } from "../constants";
+import MiniModal from "../components/MiniModal";
 
 interface OurServicesProps {
   servicesData: Service[];
@@ -42,11 +44,19 @@ const OurServices: React.FC<OurServicesProps> = ({ servicesData, onAdd }) => {
         </div>
       </section>
 
-      <ServiceModal
-        service={activeService}
-        onClose={() => setActiveService(null)}
-        onAdd={onAdd}
-      />
+      {activeService?.id !== "mini" ? (
+        <ServiceModal
+          service={activeService}
+          onClose={() => setActiveService(null)}
+          onAdd={onAdd}
+        />
+      ) : (
+        <MiniModal
+          Data={miniServiceData}
+          onClose={() => setActiveService(null)}
+          onAdd={onAdd}
+        />
+      )}
     </>
   );
 };

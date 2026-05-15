@@ -14,8 +14,11 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
   onAdd,
 }) => {
   const [qty, setQty] = React.useState(1);
+  const [sqft, setSqft] = React.useState(1);
   const [price, setPrice] = React.useState(
-    service?.priceOptions?.[0]?.price ?? service?.price ?? 0,
+    service?.unit === "sqft"
+      ? service?.pricePerSqft || 0
+      : Number(service?.priceOptions?.[0]?.price || service?.price || 0),
   );
   const [added, setAdded] = React.useState(false);
 
@@ -53,7 +56,12 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
     if (!service) return;
 
     setQty(1);
-    setPrice(service.priceOptions?.[0]?.price ?? service.price ?? 0);
+    setSqft(1);
+    setPrice(
+      service.unit === "sqft"
+        ? service.pricePerSqft || 0
+        : Number(service.priceOptions?.[0]?.price || service.price || 0),
+    );
     setAdded(false);
     setCurrent(0);
   }, [service]);
@@ -156,10 +164,11 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
               </div>
 
               {/* Price Options */}
-              {service.priceOptions && (
-                <>
+              {service.priceOptions &&
+                service.priceOptions.length > 0 &&
+                service.unit !== "sqft" && (
                   <select
-                    className="w-100 border rounded-xl px-4 py-3 me-5 inline"
+                    className="border rounded-xl px-4 py-3"
                     value={price}
                     onChange={(e) => setPrice(Number(e.target.value))}
                   >
@@ -169,14 +178,26 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
                       </option>
                     ))}
                   </select>
-                  <input
-                    type="number"
-                    min={1}
-                    value={qty}
-                    onChange={(e) => setQty(Number(e.target.value))}
-                    className="w-24 border rounded-xl px-4 py-2 inline"
-                  />
-                </>
+                )}
+
+              {/* ✅ same logic as service card */}
+              {service.unit === "sqft" ? (
+                <input
+                  type="number"
+                  min={1}
+                  placeholder="Sq Ft"
+                  value={sqft}
+                  onChange={(e) => setSqft(Number(e.target.value))}
+                  className="w-24 border rounded-xl px-3 py-2 text-center"
+                />
+              ) : (
+                <input
+                  type="number"
+                  min={1}
+                  value={qty}
+                  onChange={(e) => setQty(Number(e.target.value))}
+                  className="w-16 border rounded-xl px-3 py-2 text-center"
+                />
               )}
             </div>
 
@@ -203,7 +224,16 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
             </button>
             <button
               onClick={() => {
-                onAdd(service, Number(price), qty);
+                const finalPrice =
+                  service.unit === "sqft"
+                    ? (service.pricePerSqft || 0) * sqft
+                    : Number(price);
+
+                onAdd(
+                  service,
+                  finalPrice,
+                  service.unit === "sqft" ? sqft : qty,
+                );
                 setAdded(true);
                 setTimeout(() => setAdded(false), 1200);
               }}

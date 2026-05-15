@@ -16,7 +16,14 @@ const Hero = () => {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <h2 className="text-3xl md:text-4xl font-bold">
+        <h2 className="text-3xl md:text-3xl uppercase font-bold">
+          <span className="bg-gradient-to-r from-[#1c67d2] to-[#3295CF]
+              text-white px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition">
+            My Cleaning Friend
+          </span>
+        </h2>
+
+        <h2 className="text-3xl md:text-4xl font-bold mt-10">
           All Types of Deep Cleaning —{" "}
           <span className="text-[#1c67d2]">Fast, Safe & Trusted</span>
         </h2>
@@ -93,7 +100,7 @@ const Hero = () => {
                 key={img}
                 src={img}
                 alt="Cleaning service"
-                className="w-full h-[420px] object-cover flex-shrink-0"
+                className="w-full h-[420px] object-fill flex-shrink-0"
               />
             ))}
           </motion.div>

@@ -21,7 +21,12 @@ export default function CleaningLanding() {
 
       if (existing) {
         return prev.map((i) =>
-          i.id === service.id ? { ...i, quantity: i.quantity + qty } : i,
+          i.id === service.id
+            ? {
+                ...i,
+                quantity: i.quantity + qty,
+              }
+            : i,
         );
       }
 
@@ -30,13 +35,13 @@ export default function CleaningLanding() {
         {
           id: service.id,
           title: service.title.replace(/<[^>]*>/g, ""),
-          price,
+          price: Number(price), // ✅ IMPORTANT
           quantity: qty,
+          unit: service.unit,
         },
       ];
     });
   };
-
   const removeFromBooking = (id: string) =>
     setBooking((prev: any) => prev.filter((i: any) => i.id !== id));
 

@@ -11,13 +11,20 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   const [qty, setQty] = useState(1);
   const [added, setAdded] = useState(false);
 
-  const defaultPrice = service.priceOptions?.[0]?.price ?? service.price ?? 0;
+  const defaultPrice =
+    service.unit === "sqft"
+      ? service.pricePerSqft || 0
+      : Number(service.priceOptions?.[0]?.price || service.price || 0);
 
   const [price, setPrice] = useState<number>(Number(defaultPrice));
+  const [sqft, setSqft] = useState(1);
 
   const handleAdd = (e: React.MouseEvent) => {
     e.stopPropagation();
-    onAdd(service, price, qty);
+    const finalPrice =
+      service.unit === "sqft" ? (service.pricePerSqft || 0) * sqft : price;
+
+    onAdd(service, finalPrice, service.unit === "sqft" ? 1 : qty);
 
     setAdded(true);
     setTimeout(() => setAdded(false), 1200);
@@ -54,48 +61,91 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 
         {/* RATING */}
         {service.rating && (
-          <div className="flex items-center gap-1 text-xs sm:text-sm text-slate-600">
+          <div className="flex  items-center gap-1 text-xs sm:text-sm text-slate-600">
             ⭐ <span>{service.rating}</span>
           </div>
         )}
 
+        {
+          <div className="mt-3">
+            {service.secondtitle && (
+              <span
+                className="bg-gradient-to-r from-[#1c67d2] to-[#3295CF]
+              text-white text-sm px-3 py-1  rounded-xl shadow-lg hover:shadow-xl transition"
+              >
+                {service.secondtitle}
+              </span>
+            )}
+          </div>
+        }
+
         {/* PRICE */}
-        <div className="text-base sm:text-xl font-bold text-[#1c67d2]">
-          From ₹{defaultPrice}
-        </div>
+        {service.id != "mini" && (
+          <>
+            {service.unit === "sqft"
+              ? `₹${service.pricePerSqft}/sqft`
+              : `From ₹${defaultPrice}`}
+          </>
+        )}
 
         {/* 🔴 DESKTOP / TABLET ONLY */}
         <div className="hidden sm:block space-y-3">
-          {service.priceOptions && (
-            <select
-              className="w-full border rounded-xl px-4 py-2 text-sm bg-white"
-              value={price}
-              onChange={(e) => setPrice(Number(e.target.value))}
-            >
-              {service.priceOptions.map((opt) => (
-                <option key={opt.label} value={opt.price}>
-                  {opt.label} — ₹{opt.price}
-                </option>
-              ))}
-            </select>
-          )}
+          {service.priceOptions &&
+            service.priceOptions.length > 0 &&
+            service.unit !== "sqft" && (
+              <select
+                className="w-full border rounded-xl px-4 py-2 text-sm bg-white"
+                value={price}
+                onChange={(e) => setPrice(Number(e.target.value))}
+              >
+                {service.priceOptions.map((opt) => (
+                  <option key={opt.label} value={opt.price}>
+                    {opt.label} — ₹{opt.price}
+                  </option>
+                ))}
+              </select>
+            )}
 
           <div className="flex items-center gap-3">
-            <input
-              type="number"
-              min={1}
-              value={qty}
-              onChange={(e) => setQty(Number(e.target.value))}
-              className="w-16 border rounded-xl px-3 py-2 text-center"
-            />
-
-            <button
-              onClick={handleAdd}
-              className="flex-1 py-2 rounded-xl font-semibold bg-gradient-to-r
+            {service.id !== "mini" && (
+              <>
+                {service.unit === "sqft" ? (
+                  <input
+                    type="number"
+                    min={1}
+                    placeholder="Sq Ft"
+                    value={sqft}
+                    onChange={(e) => setSqft(Number(e.target.value))}
+                    className="w-24 border rounded-xl px-3 py-2 text-center"
+                  />
+                ) : (
+                  <input
+                    type="number"
+                    min={1}
+                    value={qty}
+                    onChange={(e) => setQty(Number(e.target.value))}
+                    className="w-16 border rounded-xl px-3 py-2 text-center"
+                  />
+                )}
+              </>
+            )}
+            {service.id !== "mini" && (
+              <button
+                onClick={handleAdd}
+                className="flex-1 py-2 rounded-xl font-semibold bg-gradient-to-r
               from-[#1c67d2] to-[#3295CF] text-white hover:shadow-lg transition"
-            >
-              {added ? "Added ✓" : "Add"}
-            </button>
+              >
+                {added ? "Added ✓" : "Add"}
+              </button>
+            )}
+            {service.id === "mini" && (
+              <button
+                className="flex-1 py-2 rounded-xl font-semibold bg-gradient-to-r
+              from-[#1c67d2] to-[#3295CF] text-white hover:shadow-lg transition"
+              >
+                Open
+              </button>
+            )}
           </div>
         </div>
 

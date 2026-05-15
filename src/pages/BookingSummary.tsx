@@ -6,6 +6,8 @@ interface BookingItem {
   title: string;
   price: number;
   quantity: number;
+  sqft?: number;
+  unit?: string;
 }
 
 interface BookingSummaryProps {
@@ -19,10 +21,15 @@ const BookingSummary = ({
   onRemove,
   onClear,
 }: BookingSummaryProps) => {
-  const subtotal = booking.reduce(
-    (sum, item) => sum + item.price * item.quantity,
-    0,
-  );
+  const subtotal = booking.reduce((sum, item) => {
+    // ✅ sqft services
+    if (item.unit === "sqft") {
+      return sum + item.price;
+    }
+
+    // ✅ normal services
+    return sum + item.price * item.quantity;
+  }, 0);
   const hasItems = booking.length > 0;
 
   const [name, setName] = useState("");
@@ -54,7 +61,13 @@ Address: ${address}
 
 Services:
 ${booking
-  .map((i) => `• ${i.title} × ${i.quantity} = ₹${i.price * i.quantity}`)
+  .map((i) => {
+    if (i.unit === "sqft") {
+      return `• ${i.title} (${i.quantity} sqft) = ₹${i.price}`;
+    }
+
+    return `• ${i.title} × ${i.quantity} = ₹${i.price * i.quantity}`;
+  })
   .join("\n")}
 
 Subtotal: ₹${subtotal}
@@ -131,7 +144,10 @@ Total Payable: ₹${totalPayable.toFixed(0)}
                   </div>
                   <div className="text-right flex flex-col items-end">
                     <span className="font-black text-slate-900 text-lg">
-                      ₹{item.price * item.quantity}
+                      ₹
+                      {item.unit === "sqft"
+                        ? item.price
+                        : item.price * item.quantity}
                     </span>
                     <button
                       onClick={() => onRemove(item.id)}
