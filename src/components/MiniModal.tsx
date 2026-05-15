@@ -1,10 +1,17 @@
-import React, { useEffect, useCallback } from "react";  
 import { motion, AnimatePresence } from "framer-motion";
-import ServiceCard from "../components/ServiceCards"
+import ServiceCard from "./ServiceCards";
 import { useState } from "react";
+import type { Service } from "../types/types";
 
-const MiniModal = ({ Data,onClose,onAdd}) => {
-  const [activeService, setActiveService] = useState(null);
+interface MiniModalProps {
+  Data: Service[];
+  onClose: () => void;
+  onAdd: (service: Service, price: number, qty: number) => void;
+}
+
+const MiniModal: React.FC<MiniModalProps> = ({ Data, onClose, onAdd }) => {
+  const [activeService, setActiveService] = useState<Service | null>(null);
+
   if (!Data) return null;
 
   return (
@@ -35,14 +42,14 @@ const MiniModal = ({ Data,onClose,onAdd}) => {
 
           {/* Body */}
           <div className="grid md:grid-cols-2 gap-6 p-6 max-h-[70vh] overflow-y-auto">
-             {Data.map((service, index) => (
-             <ServiceCard
-              key={service.id}
-              service={service}
-              index={index}
-              onClick={setActiveService}
-              onAdd={onAdd}
-            />
+            {Data.map((service: Service, index: number) => (
+              <ServiceCard
+                key={service.id}
+                service={service}
+                index={index}
+                onClick={setActiveService}
+                onAdd={onAdd}
+              />
             ))}
           </div>
 
