@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import founder from "../assets/team/founder.jpeg";
-import coFounder from "../assets/team/cofounder.jpeg";
 export default function AboutUS() {
   return (
     <section className="relative py-14 bg-white">
