@@ -72,7 +72,7 @@ export default function SocialBar() {
   ];
 
   return (
-    <div className="fixed bottom-8 right-6 z-[9999] flex flex-col items-end gap-4">
+    <div className="fixed bottom-8 right-6 z-40 flex flex-col items-end gap-4">
       <div className="flex flex-col gap-2 p-2 bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl">
         {socials.map((item) => (
           <div key={item.id} className="relative flex items-center">
