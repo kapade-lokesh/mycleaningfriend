@@ -40,7 +40,7 @@ const BookingSummary = ({
   const [discount, setDiscount] = useState(0);
 
   const applyCoupon = () => {
-    if (coupon.toUpperCase() === "CLEAN10") {
+    if (coupon.toUpperCase() === "MCF10") {
       setDiscount(subtotal * 0.1); // 10%
     } else if (coupon.toUpperCase() === "FIRST50") {
       setDiscount(50);
