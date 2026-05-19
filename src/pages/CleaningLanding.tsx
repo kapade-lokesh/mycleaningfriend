@@ -15,7 +15,8 @@ import SocialBar from "../components/Socialbar";
 export default function CleaningLanding() {
   const [booking, setBooking] = useState<BookingItem[]>([]);
 
-  const addToBooking = (service: Service, price: number, qty: number) => {
+  const addToBooking = (service: Service, price: number, qty: number, label: string) => {
+    console.log("label", label);
     setBooking((prev) => {
       const existing = prev.find((i) => i.id === service.id);
 
@@ -23,9 +24,10 @@ export default function CleaningLanding() {
         return prev.map((i) =>
           i.id === service.id
             ? {
-                ...i,
-                quantity: i.quantity + qty,
-              }
+              ...i,
+              quantity: i.quantity + qty,
+              label: label,
+            }
             : i,
         );
       }
@@ -38,6 +40,8 @@ export default function CleaningLanding() {
           price: Number(price), // ✅ IMPORTANT
           quantity: qty,
           unit: service.unit,
+          secondtitle: service.secondtitle ?? "",
+          label: label
         },
       ];
     });

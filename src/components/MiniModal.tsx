@@ -6,7 +6,7 @@ import type { Service } from "../types/types";
 interface MiniModalProps {
   Data: Service[];
   onClose: () => void;
-  onAdd: (service: Service, price: number, qty: number) => void;
+  onAdd: (service: Service, price: number, qty: number, label: string) => void;
 }
 
 const MiniModal: React.FC<MiniModalProps> = ({ Data, onClose, onAdd }) => {

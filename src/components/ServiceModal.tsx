@@ -5,7 +5,7 @@ import type { Service } from "../types/types";
 interface ServiceModalProps {
   service: Service | null;
   onClose: () => void;
-  onAdd: (service: Service, price: number, qty: number) => void;
+  onAdd: (service: Service, price: number, qty: number, label: string) => void;
 }
 
 const ServiceModal: React.FC<ServiceModalProps> = ({
@@ -19,6 +19,12 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
     service?.unit === "sqft"
       ? service?.pricePerSqft || 0
       : Number(service?.priceOptions?.[0]?.price || service?.price || 0),
+  );
+
+  const [label, setLabel] = React.useState(
+    service?.unit === "sqft"
+      ? ""
+      : service?.priceOptions?.[0]?.label || "",
   );
   const [added, setAdded] = React.useState(false);
 
@@ -62,7 +68,10 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
         ? service.pricePerSqft || 0
         : Number(service.priceOptions?.[0]?.price || service.price || 0),
     );
-    setAdded(false);
+    setLabel(service?.unit === "sqft"
+      ? ""
+      : service?.priceOptions?.[0]?.label || ""),
+      setAdded(false);
     setCurrent(0);
   }, [service]);
 
@@ -140,9 +149,8 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
                   {images.map((_, i) => (
                     <div
                       key={i}
-                      className={`h-2 w-2 rounded-full transition-all ${
-                        i === current ? "bg-white" : "bg-white/40"
-                      }`}
+                      className={`h-2 w-2 rounded-full transition-all ${i === current ? "bg-white" : "bg-white/40"
+                        }`}
                     />
                   ))}
                 </div>
@@ -170,7 +178,14 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
                   <select
                     className="border rounded-xl px-4 py-3"
                     value={price}
-                    onChange={(e) => setPrice(Number(e.target.value))}
+                    onChange={(e) => {
+                      const selected = service.priceOptions?.find(
+                        (opt) => opt.price === Number(e.target.value)
+                      );
+
+                      setPrice(Number(e.target.value));
+                      setLabel(selected?.label || "");
+                    }}
                   >
                     {service.priceOptions.map((opt) => (
                       <option key={opt.label} value={opt.price}>
@@ -224,6 +239,7 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
             </button>
             <button
               onClick={() => {
+                console.log("log from model", service);
                 const finalPrice =
                   service.unit === "sqft"
                     ? (service.pricePerSqft || 0) * sqft
@@ -233,15 +249,15 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
                   service,
                   finalPrice,
                   service.unit === "sqft" ? sqft : qty,
+                  label,
                 );
                 setAdded(true);
                 setTimeout(() => setAdded(false), 1200);
               }}
-              className={`px-6 py-2 rounded-xl font-semibold transition-all ${
-                added
-                  ? "bg-[#3295CF]  text-white"
-                  : "bg-gradient-to-r from-[#1c67d2] to-[#3295CF] text-white"
-              }`}
+              className={`px-6 py-2 rounded-xl font-semibold transition-all ${added
+                ? "bg-[#3295CF]  text-white"
+                : "bg-gradient-to-r from-[#1c67d2] to-[#3295CF] text-white"
+                }`}
             >
               {added ? "Added ✓" : "Add to booking"}
             </button>

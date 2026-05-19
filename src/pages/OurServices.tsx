@@ -8,7 +8,7 @@ import MiniModal from "../components/MiniModal";
 
 interface OurServicesProps {
   servicesData: Service[];
-  onAdd: (service: Service, price: number, qty: number) => void;
+  onAdd: (service: Service, price: number, qty: number,label:string) => void;
 }
 
 const OurServices: React.FC<OurServicesProps> = ({ servicesData, onAdd }) => {

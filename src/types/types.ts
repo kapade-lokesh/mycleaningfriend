@@ -2,7 +2,7 @@ export interface ServiceCardProps {
   service: Service;
   index: number;
   onClick: (service: Service) => void;
-  onAdd: (service: Service, price: number, qty: number) => void;
+  onAdd: (service: Service, price: number, qty: number, label: string) => void;
 }
 export interface Service {
   id: string;
@@ -31,4 +31,5 @@ export interface BookingItem {
   title: string;
   price: number;
   quantity: number;
+  secondtitle: string,
 }

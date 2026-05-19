@@ -7,7 +7,9 @@ interface BookingItem {
   price: number;
   quantity: number;
   sqft?: number;
+  secondtitle: string,
   unit?: string;
+  label?: string;
 }
 
 interface BookingSummaryProps {
@@ -31,7 +33,6 @@ const BookingSummary = ({
     return sum + item.price * item.quantity;
   }, 0);
   const hasItems = booking.length > 0;
-
   const [name, setName] = useState("");
   const [mobile, setMobile] = useState("");
   const [address, setAddress] = useState("");
@@ -58,17 +59,16 @@ New Cleaning Booking
 Name: ${name}
 Mobile: ${mobile}
 Address: ${address}
-
 Services:
 ${booking
-  .map((i) => {
-    if (i.unit === "sqft") {
-      return `• ${i.title} (${i.quantity} sqft) = ₹${i.price}`;
-    }
+      .map((i) => {
+        if (i.unit === "sqft") {
+          return `• ${i.title}  (${i.quantity} sqft) = ₹${i.price}`;
+        }
 
-    return `• ${i.title} × ${i.quantity} = ₹${i.price * i.quantity}`;
-  })
-  .join("\n")}
+        return `• ${i.title} × ${i.quantity} × ${i.label} × ${i.secondtitle ? i.secondtitle : ''}  = ₹${i.price * i.quantity}`;
+      })
+      .join("\n")}
 
 Subtotal: ₹${subtotal}
 Discount: ₹${discount.toFixed(0)}
